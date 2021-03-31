@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
+    "@fontsource/fahkwang": "^4.2.3",
     "@fontsource/lora": "^4.1.0",
+    "@fontsource/mulish": "^4.2.2",
     "@fontsource/nunito-sans": "^4.1.0",
     "@fontsource/vollkorn": "^4.1.0",
     "d3-ease": "^2.0.0",

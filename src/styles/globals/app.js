@@ -3,6 +3,14 @@ import { css } from "styled-components";
 // -------------------------------------------------------------
 // App.
 // -------------------------------------------------------------
+export const defaultHeading = css`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: 1.27273px;
+`;
 
 export default css`
   body,
@@ -55,5 +63,8 @@ export default css`
     /* or 129% */
 
     letter-spacing: 1.27273px;
+  }
+  h1 {
+    ${defaultHeading}
   }
 `;

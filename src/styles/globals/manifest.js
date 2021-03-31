@@ -1,7 +1,9 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 
-import "@fontsource/nunito-sans/900-italic.css";
+import "@fontsource/fahkwang/600.css";
+import "@fontsource/mulish/700.css";
+import "@fontsource/mulish/400.css";
 
 import normalize from "./normalize";
 import theme from "./theme";

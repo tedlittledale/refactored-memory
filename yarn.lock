@@ -615,10 +615,20 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
+"@fontsource/fahkwang@^4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@fontsource/fahkwang/-/fahkwang-4.2.3.tgz#c6af936745395b22ee59328ddd6b8e01a7ce5d8f"
+  integrity sha512-utg2eTPWCl1UoBjsUDllou0bkCGY1EEEeZrmz7+eWDFuKrpcaa6i5d1dxeH26E2b9DdGbhV7RUfHTJMATwBgPg==
+
 "@fontsource/lora@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@fontsource/lora/-/lora-4.1.0.tgz#bb386542e00d8fd9c330942d06765db88872b107"
   integrity sha512-P1Fx9htWJpTQareN6IR7hTh2Zw8HvfPhM/4yQR4Gfxl2UQDMnRHUAlfh7f/qyr9m9JDXNzh4LYk7AUn9zQD2kA==
+
+"@fontsource/mulish@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/mulish/-/mulish-4.2.2.tgz#3942f96501fdc7c005c24107b29e30670b2a1176"
+  integrity sha512-MefySrFg00cZ1vLv52V1AzhnifdaWXEJ7VdkQuusLtSh81jT6ilbfJyCIAO/lNPhXZ5UVaQ1dyir+oXU6PxCIg==
 
 "@fontsource/nunito-sans@^4.1.0":
   version "4.1.0"

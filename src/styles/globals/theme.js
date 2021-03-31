@@ -13,6 +13,7 @@ const lightTheme = css`
   --color-content-lighter: #222222;
   --color-content-darkbg: #fff;
   --color-black: #000;
+  --color-borders: #d8d8d8;
 `;
 /* At the moment this is the same as light theme */
 const darkTheme = css`
@@ -36,9 +37,9 @@ export default css`
     --typographic-rhythm: 62.5%;
     --typographic-size: 1.6em;
 
-    --font-body-stack: Verdana, sans-serif;
+    --font-body-stack: "Mulish", sans-serif;
     --font-body-line-height: 1.4;
-    --font-heading-stack: "Nunito Sans", sans-serif;
+    --font-heading-stack: "Fahkwang", sans-serif;
     --font-heading-line-height: 1.4 ${lightTheme};
 
     --color-font-highlight: hsl(360, 92%, 20%);
