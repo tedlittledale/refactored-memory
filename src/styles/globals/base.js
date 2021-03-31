@@ -38,20 +38,20 @@ const fullBodyViewportHeight = css`
 
 const colors = css`
   html {
-    color: var(--color-pagecontent);
-    background: var(--color-page-overscroll);
+    color: var(--color-content);
+    background: var(--color-background);
   }
   body {
-    background: var(--color-selectionbackground);
+    background: var(--color-background);
   }
 
   ::selection {
-    color: var(--color-selection-foreground);
-    background: var(--color-pagecontent);
+    color: var(--color-content-darkbg);
+    background: var(--color-black);
   }
 
   a {
-    color: var(--color-pagecontent);
+    color: var(--color-content);
   }
 `;
 

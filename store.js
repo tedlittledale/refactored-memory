@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { types, applySnapshot } from "mobx-state-tree";
-import { ExampleModel } from "./models/ExampleModel";
+import { ExampleModel } from "./src/models/ExampleModel";
 
 let store;
 

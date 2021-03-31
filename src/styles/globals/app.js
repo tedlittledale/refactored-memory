@@ -7,8 +7,7 @@ import { css } from "styled-components";
 export default css`
   body,
   html {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
   }
   /**
    * Reset.
@@ -50,4 +49,11 @@ export default css`
   /**
    * App.
    */
+  body {
+    font-size: 14px;
+    line-height: 18px;
+    /* or 129% */
+
+    letter-spacing: 1.27273px;
+  }
 `;

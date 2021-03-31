@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { getSnapshot } from "mobx-state-tree";
 import { compose } from "ramda";
 import { observer } from "mobx-react-lite";
-import { withPaths } from "../utils/store";
-import Header from "../components/Header";
+import { withPaths } from "../src/utils/store";
+import Header from "../src/components/Header";
 import { initializeStore } from "../store";
 
 const Pages = styled("div")``;
@@ -42,7 +42,7 @@ const Home = () => {
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="theme-color" content="#ffffff" />
       </Head>

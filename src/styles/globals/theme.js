@@ -8,7 +8,14 @@ import { css } from "styled-components";
 // -------------------------------------------------------------
 
 const lightTheme = css`
-  --color-pagecontent: hsl(209, 61%, 16%);
+  --color-background: #f2f2f2;
+  --color-content: #000;
+  --color-content-lighter: #222222;
+  --color-content-darkbg: #fff;
+  --color-black: #000;
+`;
+/* At the moment this is the same as light theme */
+const darkTheme = css`
   --color-pagecontent: hsl(209, 61%, 16%);
   --color-pagecontent-faded: hsl(0, 0%, 50%);
   --color-page-overscroll: hsl(0, 0%, 100%);
@@ -18,14 +25,6 @@ const lightTheme = css`
   --color-faint: hsl(212, 33%, 89%);
   --color-faint-transparent: hsla(212, 33%, 89%, 0.5);
   --color-highlight: hsl(184, 77%, 34%);
-`;
-
-const darkTheme = css`
-  --color-pagecontent: hsl(0, 0%, 100%);
-  --color-page-background: hsl(0, 0%, 10%);
-  --color-page-overscroll: hsl(0, 0%, 10%);
-  --color-selection-foreground: hsl(0, 0%, 100%);
-  --color-selectionbackground: var(--color-accent);
 `;
 
 export default css`
@@ -66,6 +65,6 @@ export default css`
   }
 
   html[data-theme="dark"] {
-    ${lightTheme};
+    ${darkTheme};
   }
 `;
