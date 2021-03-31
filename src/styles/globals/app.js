@@ -12,6 +12,7 @@ export const defaultHeading = css`
   letter-spacing: 1.27273px;
 `;
 
+export const mobileBreakpoint = "900px";
 export default css`
   body,
   html {

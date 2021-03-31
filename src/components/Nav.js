@@ -10,9 +10,23 @@ const NavWrap = styled.nav`
   display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
   height: 100vh;
   width: 100vw;
+  position: absolute;
+  z-index: ${({ theme }) => theme.zindexes.medium};
   background: var(--color-background);
   padding: 20px;
   align-items: center;
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: grid;
+    height: auto;
+    position: relative;
+    padding-right: 99px;
+    ul {
+      justify-self: end;
+      display: grid;
+      grid: 1fr / auto auto auto auto;
+      grid-gap: 40px;
+    }
+  }
 `;
 
 const NavItem = styled.li`
@@ -27,6 +41,15 @@ const NavItem = styled.li`
   &:last-child {
     border: none;
   }
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-family: var(--font-body-stack);
+    font-weight: 400;
+    border: none;
+    padding: 31px 0;
+    a {
+      color: var(--color-content-lighter);
+    }
+  }
 `;
 
 const MenuToggle = styled.button`
@@ -39,6 +62,11 @@ const MenuToggle = styled.button`
   display: grid;
   justify-content: center;
   align-items: center;
+  z-index: ${({ theme }) => theme.zindexes.highest};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 const Nav = () => {
@@ -51,7 +79,7 @@ const Nav = () => {
       <MenuToggle
         id="menu-toggle"
         aria-label="Main menu"
-        aria-expanded="false"
+        aria-expanded={isOpen ? "true" : "false"}
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <Close /> : <Hamburger />}

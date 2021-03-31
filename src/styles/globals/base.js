@@ -36,6 +36,10 @@ const fullBodyViewportHeight = css`
   }
 `;
 
+const responsiveVars = css`
+  --mobilecutoff: 900px;
+`;
+
 const colors = css`
   html {
     color: var(--color-content);
@@ -56,6 +60,7 @@ const colors = css`
 `;
 
 export default css`
+  ${responsiveVars}
   ${boxModel}
   ${typography}
   ${fullBodyViewportHeight}
