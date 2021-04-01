@@ -7,7 +7,7 @@ const LayoutWrap = styled.div`
   display: grid;
   grid: 1fr/ 1fr;
   align-items: start;
-  justify-items: center;
+  justify-items: start;
 `;
 
 const Layout = ({ children }) => {

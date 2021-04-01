@@ -13,7 +13,7 @@ const NavWrap = styled.nav`
   position: absolute;
   z-index: ${({ theme }) => theme.zindexes.medium};
   background: var(--color-background);
-  padding: 20px;
+  padding: ${({ theme }) => theme.spacing.sidePadding};
   align-items: center;
   ul {
     position: relative;
@@ -22,7 +22,7 @@ const NavWrap = styled.nav`
     border: none;
   }
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 0 40px 0 0;
+    padding: 0 ${({ theme }) => theme.spacing.default} 0 0;
     display: grid;
     height: auto;
     position: relative;
@@ -30,7 +30,7 @@ const NavWrap = styled.nav`
       justify-self: end;
       display: grid;
       grid: 1fr / auto auto auto auto auto;
-      grid-gap: 40px;
+      grid-gap: ${({ theme }) => theme.spacing.default};
     }
   }
 `;
@@ -93,7 +93,7 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
+    <div>
       <span hidden id="navigation-label">
         Main navigation
       </span>
@@ -127,7 +127,7 @@ const Nav = () => {
           </BasketItem>
         </ul>
       </NavWrap>
-    </>
+    </div>
   );
 };
 

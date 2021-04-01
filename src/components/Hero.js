@@ -12,7 +12,11 @@ const HeroWrap = styled.main`
   background-image: url("${({ bg }) => bg}");
   background-size: cover;
   color: var(--color-content-darkbg);
-  padding: 214px 20px 20px 20px;
+  padding: ${({ theme }) =>
+    `214px  ${theme.spacing.sidePadding} ${theme.spacing.sidePadding} ${theme.spacing.sidePadding}`};
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: ${({ theme }) => `214px  70px ${theme.spacing.sidePadding} 70px`};
+  }
   /* More flexible grid version */
   /*
   display: grid;

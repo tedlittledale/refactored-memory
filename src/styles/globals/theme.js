@@ -9,6 +9,7 @@ import { css } from "styled-components";
 
 const lightTheme = css`
   --color-background: #f2f2f2;
+  --color-altbackground: #efeded;
   --color-content: #000;
   --color-content-lighter: #222222;
   --color-content-darkbg: #fff;

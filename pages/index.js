@@ -1,17 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import styled from "styled-components";
-import { getSnapshot } from "mobx-state-tree";
-import { observer } from "mobx-react-lite";
-
-import { withPaths } from "../src/utils/store";
 import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
 import Nav from "../src/components/Nav";
 import Hero from "../src/components/Hero";
+import CarouselSection from "../src/components/CarouselSection";
+import Featured from "../src/components/Featured";
 import NavBar from "../src/layouts/NavBar";
-import { initializeStore } from "../store";
-import products from "../data/products";
 
 const Home = () => {
   return (
@@ -55,6 +50,8 @@ const Home = () => {
           <Nav />
         </NavBar>
         <Hero />
+        <Featured />
+        <CarouselSection />
       </Layout>
     </>
   );

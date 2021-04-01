@@ -7,11 +7,11 @@ const Wrapper = styled("header")`
   h1 {
     ${defaultBodyText};
     white-space: nowrap;
-    padding: 32px 0 32px 20px;
+    padding: 32px 0 32px ${({ theme }) => theme.spacing.sidePadding};
     position: relative;
     z-index: ${({ theme }) => theme.zindexes.high};
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding: 31x 0 31px 40px;
+      padding: 31x 0 31px ${({ theme }) => theme.spacing.default};
     }
   }
 `;
