@@ -5,12 +5,11 @@ import styled from "styled-components";
 import Hamburger from "../icons/Hamburger";
 import Close from "../icons/Close";
 import Basket from "../icons/Basket";
-import { defaultHeading } from "../styles/globals/app";
 
 const NavWrap = styled.nav`
   display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   z-index: ${({ theme }) => theme.zindexes.medium};
   background: var(--color-background);
@@ -37,7 +36,6 @@ const NavWrap = styled.nav`
 `;
 
 const NavItem = styled.li`
-  ${defaultHeading};
   font-family: var(--font-heading-stack);
   a {
     text-decoration: none;

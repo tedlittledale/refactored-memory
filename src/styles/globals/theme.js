@@ -13,6 +13,7 @@ const lightTheme = css`
   --color-content-lighter: #222222;
   --color-content-darkbg: #fff;
   --color-black: #000;
+  --color-white: #fff;
   --color-borders: #d8d8d8;
   --color-red: #fc7c3a;
 `;

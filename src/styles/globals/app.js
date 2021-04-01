@@ -5,9 +5,25 @@ import { css } from "styled-components";
 // -------------------------------------------------------------
 export const defaultHeading = css`
   font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height, or 128% */
+
+  letter-spacing: 1.63636px;
+`;
+
+export const defaultHeadingMobile = css`
+  font-family: var(--font-heading-stack);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: 1.63636px;
+`;
+
+export const defaultBodyText = css`
   font-size: 14px;
   line-height: 18px;
-  /* identical to box height, or 129% */
 
   letter-spacing: 1.27273px;
 `;
@@ -59,13 +75,17 @@ export default css`
    * App.
    */
   body {
-    font-size: 14px;
-    line-height: 18px;
-    /* or 129% */
-
-    letter-spacing: 1.27273px;
+    ${defaultBodyText}
   }
   h1 {
     ${defaultHeading}
+  }
+
+  h2,
+  h3 {
+    ${defaultHeadingMobile}
+    @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      ${defaultHeading}
+    }
   }
 `;

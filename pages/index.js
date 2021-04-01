@@ -2,25 +2,26 @@ import React from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import { getSnapshot } from "mobx-state-tree";
-import { compose } from "ramda";
 import { observer } from "mobx-react-lite";
+
 import { withPaths } from "../src/utils/store";
 import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
 import Nav from "../src/components/Nav";
+import Hero from "../src/components/Hero";
+import NavBar from "../src/layouts/NavBar";
 import { initializeStore } from "../store";
-
-const Pages = styled("div")``;
+import products from "../data/products";
 
 const Home = () => {
   return (
     <>
       <Head>
-        <title>Example Title</title>
+        <title>Scandanavian Adventures</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@_superted" />
         <meta property="og:url" content="https://countdown.tedspace.me/" />
-        <meta property="og:title" content="Freedom calculator" />
+        <meta property="og:title" content="Scandanavian Adventures" />
         <meta property="og:description" content="Example Description" />
         <meta
           property="og:image"
@@ -49,20 +50,14 @@ const Home = () => {
         <meta name="theme-color" content="#ffffff" />
       </Head>
       <Layout>
-        <Nav />
-        <Header />
+        <NavBar>
+          <Header />
+          <Nav />
+        </NavBar>
+        <Hero />
       </Layout>
     </>
   );
 };
 
-export default compose(withPaths(["exampleModel"]), observer)(Home);
-
-// The date returned here will be different for every request that hits the page,
-// that is because the page becomes a serverless function instead of being statically
-// exported when you use `getServerSideProps` or `getInitialProps`
-export async function getStaticProps() {
-  const store = initializeStore();
-
-  return { props: { initialState: getSnapshot(store) } };
-}
+export default Home;
