@@ -14,6 +14,7 @@ const lightTheme = css`
   --color-content-darkbg: #fff;
   --color-black: #000;
   --color-borders: #d8d8d8;
+  --color-red: #fc7c3a;
 `;
 /* At the moment this is the same as light theme */
 const darkTheme = css`
