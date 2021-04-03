@@ -1,38 +1,75 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { withProp } from "styled-tools";
+import { range } from "ramda";
 import { useSwipeable } from "react-swipeable";
 
-const LEFT = "LEFT";
-const RIGHT = "RIGHT";
-
-const CarouselWrap = styled.div`
-  width: 100vw;
+const CarouselMask = styled.div`
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  position: relative;
+  ${({ carouselItems, itemSize, theme }) => `
+    width:${carouselItems * itemSize}px;
+  `}
+  left: ${({ itemSize }) => `-${itemSize}px`};
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
+    left: 0;
   }
+`;
+
+const CarouselStrip = styled.div`
+  display: grid;
+  height: 100%;
+  width: 100%;
+  ${({ items, itemSize, theme }) => `
+    grid: 1fr / repeat(${items}, 1fr);
+  `}
+  grid-gap: ${({ theme }) => theme.spacing.sidePadding};
+  ${withProp(
+    "carouselPosition",
+    (carouselPosition) => `
+    left:${carouselPosition * 100}%;
+  `
+  )}
+
   > div {
-    display: grid;
-    grid: ${({ carouselItems }) => `1fr / repeat(${carouselItems}, 1fr)`};
-    grid-gap: ${({ theme }) => theme.spacing.sidePadding};
-    transition: ${({ sliding }) => (sliding ? "none" : "transform 10s ease")};
-    transform: ${({ itemSize, sliding, direction }) => {
-      if (!sliding) return `translateX(-${itemSize}px)`;
-      if (direction === RIGHT) return `translateX(${itemSize * 2}px)`;
-      return "translateX(0%)";
-    }};
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transform: translateX(0);
+    ${withProp(["animate", "speed"], (animate, speed) => {
+      if (animate === "left") {
+        return css`
+          transition: transform ${speed}ms ease-in-out;
+          transform: translateX(100%);
+        `;
+      } else if (animate === "right") {
+        return css`
+          transition: transform ${speed}ms ease-in-out;
+          transform: translateX(-100%);
+        `;
+      }
+    })}
+    ${withProp("itemsOrder", (itemsOrder) => {
+      return css`
+        ${itemsOrder.map(
+          (order, idx) => `
+            &:nth-child(${order}){
+                order:${idx + 1}
+            }
+          `
+        )}
+      `;
+    })}
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      transform: none;
+      transition: none;
     }
   }
 `;
 
-const CarouselItem = styled.div`
-  order: ${({ position }) => position};
-  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    order: ${({ index }) => index};
-  }
-`;
+const CarouselItem = styled.div``;
 
 const config = {
   delta: 10, // min distance(px) before a swipe starts
@@ -42,81 +79,59 @@ const config = {
   rotationAngle: 0 // set a rotation angle
 };
 
-const getPosition = ({ index, carouselPosition, carouselItems }) => {
-  return index - carouselPosition < 0
-    ? carouselItems - Math.abs(index - carouselPosition)
-    : index - carouselPosition;
-};
-
-const initialState = { carouselPosition: 0, sliding: false, direction: LEFT };
-
-const Carousel = ({ children, itemSize }) => {
-  const carouselItems = children.length;
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const { carouselPosition, sliding, direction } = state;
-  console.log({ carouselPosition });
-  const slide = (direction) => {
-    dispatch({ type: direction, carouselItems });
-    setTimeout(() => {
-      dispatch({ type: "end" });
-    }, 50);
+const Carousel = ({ children, bgc, speed = 800, itemSize }) => {
+  const [carouselPosition, setCarouselPosition] = useState(0);
+  const [animate, setAnimate] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const incrementCarouse = (increment) => {
+    setCarouselPosition(carouselPosition + increment);
+    setTimeout(() => setIsAnimating(false), speed - 200);
   };
-
+  let orderedChildren;
+  if (children.length === 2) {
+    orderedChildren = [...children, ...children];
+  } else {
+    orderedChildren = children;
+  }
+  const items = orderedChildren.length;
+  const itemsOrder = range(-1, Math.max(1, items - 1)).map(function (i) {
+    const mod = (i - carouselPosition) % items;
+    return mod >= 0 ? mod + 1 : items + mod + 1;
+  });
   const handlers = useSwipeable({
-    onSwipedLeft: () => slide(LEFT),
-    onSwipedRight: () => slide(RIGHT),
+    onSwipedLeft: () => {
+      setIsAnimating(true);
+      setAnimate("right");
+      setTimeout(() => {
+        setAnimate(null);
+        incrementCarouse(-1);
+      }, 1005);
+    },
+    onSwipedRight: () => {
+      setIsAnimating(true);
+      setAnimate("left");
+      setTimeout(() => {
+        setAnimate(null);
+        incrementCarouse(1);
+      }, 1005);
+    },
     ...config
   });
-
   return (
-    <CarouselWrap
-      carouselItems={carouselItems}
-      itemSize={itemSize}
-      direction={direction}
-      sliding={sliding}
-    >
-      <div {...handlers}>
-        {children.map((child, idx) => (
-          <CarouselItem
-            key={`carouselItem${idx}`}
-            position={getPosition({
-              index: idx,
-              carouselPosition,
-              carouselItems
-            })}
-            index={idx}
-          >
-            {child}
-          </CarouselItem>
-        ))}
-      </div>
-    </CarouselWrap>
+    <CarouselMask carouselItems={items} itemSize={itemSize}>
+      <CarouselStrip
+        itemSize={itemSize}
+        speed={speed}
+        animate={animate}
+        items={items}
+        carouselPosition={carouselPosition}
+        itemsOrder={itemsOrder}
+        {...handlers}
+      >
+        {orderedChildren}
+      </CarouselStrip>
+    </CarouselMask>
   );
-};
-
-const reducer = (state, { type, carouselItems }) => {
-  switch (type) {
-    case "reset":
-      return initialState;
-    case LEFT:
-      return {
-        ...state,
-        direction: LEFT,
-        sliding: true,
-        carouselPosition: Math.min(carouselItems, state.carouselPosition + 1)
-      };
-    case RIGHT:
-      return {
-        ...state,
-        direction: RIGHT,
-        sliding: true,
-        carouselPosition: Math.max(0, state.carouselPosition - 1)
-      };
-    case "end":
-      return { ...state, sliding: false };
-    default:
-      return state;
-  }
 };
 
 export default Carousel;

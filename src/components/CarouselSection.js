@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useProductContext } from "../context/state";
 import currencySymbols from "../utils/currencySymbols";
 import Button from "./Button";
-import { take } from "ramda";
 import { defaultBodyText } from "../styles/globals/app";
 
 import Carousel from "./Carousel";

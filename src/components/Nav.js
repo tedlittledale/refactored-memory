@@ -112,7 +112,7 @@ const Nav = () => {
       >
         <ul>
           {NavData.map(({ name, link }) => (
-            <NavItem>
+            <NavItem key={name.replace(/ /g, "")}>
               <Link href={link}>
                 <a>{name}</a>
               </Link>

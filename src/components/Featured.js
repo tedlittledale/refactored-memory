@@ -69,7 +69,7 @@ const Featured = ({}) => {
     <FeaturedWrap>
       {take(2, remaining).map(
         ({ title, id, body, price, media: { small, large } }) => (
-          <FeaturedItem bglarge={large.url} bgsmall={small.url}>
+          <FeaturedItem key={id} bglarge={large.url} bgsmall={small.url}>
             <div>
               <h2>{title}</h2>
             </div>
