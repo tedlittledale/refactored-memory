@@ -88,4 +88,7 @@ export default css`
       ${defaultHeading}
     }
   }
+  button {
+    cursor: pointer;
+  }
 `;

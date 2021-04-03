@@ -5,8 +5,7 @@ const LayoutWrap = styled.div`
   min-height: 100vh;
   width: 100%;
   display: grid;
-  grid: 1fr/ 1fr;
-  align-items: start;
+  align-content: start;
   justify-items: start;
 `;
 

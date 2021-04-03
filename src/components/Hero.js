@@ -44,6 +44,7 @@ const Hero = ({}) => {
   } = useProductContext();
   const {
     title,
+    id,
     media: { large, small },
     price
   } = hero;
@@ -58,7 +59,9 @@ const Hero = ({}) => {
             {price.value} {price.unit}
           </p>
         )}
-        <Button light>Book Experience</Button>
+        <Button light href={`/book/${id}`}>
+          Book Experience
+        </Button>
       </div>
     </HeroWrap>
   );

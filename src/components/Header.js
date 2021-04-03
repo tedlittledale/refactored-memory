@@ -11,7 +11,7 @@ const Wrapper = styled("header")`
     position: relative;
     z-index: ${({ theme }) => theme.zindexes.high};
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
-      padding: 31x 0 31px ${({ theme }) => theme.spacing.default};
+      padding: 31px 0 31px ${({ theme }) => theme.spacing.default};
     }
   }
 `;

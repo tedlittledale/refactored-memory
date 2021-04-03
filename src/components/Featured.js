@@ -68,7 +68,7 @@ const Featured = ({}) => {
     /* use ramdajs take function to safely limit featured to two items */
     <FeaturedWrap>
       {take(2, remaining).map(
-        ({ title, body, price, media: { small, large } }) => (
+        ({ title, id, body, price, media: { small, large } }) => (
           <FeaturedItem bglarge={large.url} bgsmall={small.url}>
             <div>
               <h2>{title}</h2>
@@ -88,7 +88,7 @@ const Featured = ({}) => {
                 </p>
               )}
             </div>
-            <Button>Book Experience</Button>
+            <Button href={`/book/${id}`}>Book Experience</Button>
           </FeaturedItem>
         )
       )}

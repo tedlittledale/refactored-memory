@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { defaultHeading } from "../styles/globals/app";
+import Link from "next/link";
 
-const ButtonWrap = styled.button`
-  display: grid;
+const ButtonWrap = styled.a`
+  display: inline-grid;
   align-items: center;
   justify-content: center;
   min-width: 200px;
@@ -17,11 +17,20 @@ const ButtonWrap = styled.button`
     light ? "var(--color-black)" : "var(--color-white)"};
 `;
 
-const Button = ({ children, handleClick, light = false }) => {
-  return (
-    <ButtonWrap onClick={handleClick} light={light}>
+const Button = ({
+  children,
+  href = "/",
+  light = false,
+  buttonOnly = false
+}) => {
+  return buttonOnly ? (
+    <ButtonWrap as="button" light={light}>
       {children}
     </ButtonWrap>
+  ) : (
+    <Link href={href}>
+      <ButtonWrap light={light}>{children}</ButtonWrap>
+    </Link>
   );
 };
 

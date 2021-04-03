@@ -4,7 +4,7 @@ export default {
       id: "winter-tour-gothenburg",
       title: "Gothenburg winter guided tours",
       body:
-        "Join a guided boat tour in the archipelago. M/S S:t Erik departs from Lilla Bommen and takes you through the Gothenburg harbor, past the Älvsborg Fortress and down towards the islands of Gothenburg archipelago. Enjoy a lovely boat sightseeing tour in the beautiful archipelago of Gothenburg. During the summer you can join the prestigious M/S S:t Erik on a guided cruise through the archipelago.\n\n–Exciting 5-hour tour\n– Track and find wild moose\n– Hike through boreal forest\n– Eat by a secluded forest lake\n– Chance to see wolves, foxes and lynx",
+        "Join a guided boat tour in the archipelago. M/S S:t Erik departs from Lilla Bommen and takes you through the Gothenburg harbor, past the Älvsborg Fortress and down towards the islands of Gothenburg archipelago. Enjoy a lovely boat sightseeing tour in the beautiful archipelago of Gothenburg. During the summer you can join the prestigious M/S S:t Erik on a guided cruise through the archipelago.\n\n– Exciting 5-hour tour\n– Track and find wild moose\n– Hike through boreal forest\n– Eat by a secluded forest lake\n– Chance to see wolves, foxes and lynx",
       media: {
         large: {
           url:

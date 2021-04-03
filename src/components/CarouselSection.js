@@ -15,6 +15,7 @@ const CarouselSectionWrap = styled.div`
     `36px ${theme.spacing.sidePadding} ${theme.spacing.default}`};
   text-align: center;
   width: 100%;
+  overflow: hidden;
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: ${({ theme }) =>
       `31px ${theme.spacing.default} ${theme.spacing.default}`};
@@ -73,7 +74,7 @@ const CarouselSection = ({}) => {
       <h2>Adventure awaits out there</h2>
       <p>Get out and experience Scandinavian way of living</p>
       <Carousel itemSize={275}>
-        {carouselItems.map(({ title, price, media: { small } }) => (
+        {carouselItems.map(({ title, price, id, media: { small } }) => (
           <Place bg={small.url}>
             <div></div>
             <div>
@@ -84,7 +85,9 @@ const CarouselSection = ({}) => {
                   {price.value} {price.unit}
                 </p>
               )}
-              <Button light>Book Experience</Button>
+              <Button light href={`/book/${id}`}>
+                Book Experience
+              </Button>
             </div>
           </Place>
         ))}
