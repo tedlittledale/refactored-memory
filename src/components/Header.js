@@ -4,6 +4,7 @@ import { withProp } from "styled-tools";
 import { defaultBodyText } from "../styles/globals/app";
 
 const Wrapper = styled("header")`
+  justify-self: start;
   h1 {
     ${defaultBodyText};
     white-space: nowrap;

@@ -37,9 +37,18 @@ const Booking = () => {
   const router = useRouter();
   const { placeId } = router.query;
 
-  const { getByPlaceId } = useProductContext();
+  const { getByPlaceId, updateCart } = useProductContext();
   const place = getByPlaceId(placeId);
   const { title, price, body } = place;
+
+  const [booked, setBooked] = useState(false);
+
+  const bookPlace = () => {
+    if (!booked) {
+      setBooked(true);
+      updateCart(placeId);
+    }
+  };
 
   return (
     <BookingWrap>
@@ -53,7 +62,9 @@ const Booking = () => {
           </p>
         )}
         <BookingForm price={price} />
-        <Button buttonOnly>Book experience</Button>
+        <Button buttonOnly onClick={bookPlace} disabled={!!booked}>
+          {booked ? "Added to cart" : "Book experience"}
+        </Button>
         {body && (
           <>
             {body.split("– ").length > 1 ? (

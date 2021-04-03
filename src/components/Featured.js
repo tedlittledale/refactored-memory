@@ -49,6 +49,7 @@ const FeaturedItem = styled.div`
       height: 418px;
       background-image: url("${({ bglarge }) => bglarge}");
       h2 {
+        color: var(--color-content-darkbg);
         width: 50%;
       }
     }
@@ -68,8 +69,8 @@ const Featured = ({}) => {
     /* use ramdajs take function to safely limit featured to two items */
     <FeaturedWrap>
       {take(2, remaining).map(
-        ({ title, id, body, price, media: { small, large } }) => (
-          <FeaturedItem key={id} bglarge={large.url} bgsmall={small.url}>
+        ({ title, body, price, media: { small, large } }) => (
+          <FeaturedItem bglarge={large.url} bgsmall={small.url}>
             <div>
               <h2>{title}</h2>
             </div>
@@ -88,7 +89,7 @@ const Featured = ({}) => {
                 </p>
               )}
             </div>
-            <Button href={`/book/${id}`}>Book Experience</Button>
+            <Button>Book Experience</Button>
           </FeaturedItem>
         )
       )}

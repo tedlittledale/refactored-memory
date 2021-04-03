@@ -1,20 +1,16 @@
 import React from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+import Header from "../src/components/Header";
+import Layout from "../src/components/Layout";
+import Nav from "../src/components/Nav";
+import NavBar from "../src/layouts/NavBar";
 
-import Header from "../../src/components/Header";
-import Layout from "../../src/components/Layout";
-import Booking from "../../src/components/Booking";
-import Close from "../../src/components/Close";
-import NavBar from "../../src/layouts/NavBar";
-
-const Book = () => {
-  const router = useRouter();
-  const { placeId } = router.query;
+const Home = () => {
   return (
     <>
       <Head>
-        <title>{placeId}</title>
+        <title>Scandanavian Adventures</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@_superted" />
         <meta property="og:url" content="https://countdown.tedspace.me/" />
@@ -49,31 +45,11 @@ const Book = () => {
       <Layout>
         <NavBar>
           <Header />
-          <Close />
+          <Nav />
         </NavBar>
-        <Booking />
       </Layout>
     </>
   );
 };
 
-export default Book;
-
-export async function getStaticProps() {
-  return {
-    props: {}
-  };
-}
-/* ensure static pages are generated for all places */
-export async function getStaticPaths() {
-  const products = (await import("../../data/products")).default;
-  const { featured } = products;
-  const carousel = products?.carousel?.items;
-  const paths = [...featured, ...carousel].map(({ id }) => ({
-    params: { placeId: id }
-  }));
-  return {
-    paths,
-    fallback: false
-  };
-}
+export default Home;

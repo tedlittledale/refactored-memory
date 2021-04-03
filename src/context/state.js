@@ -1,10 +1,12 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { find, propEq } from "ramda";
 import products from "../../data/products";
 
 const ProductContext = createContext();
 
 export const AppWrapper = ({ children }) => {
+  const [itemsInCart, setItemsInCart] = useState([]);
+
   const { featured } = products;
   const carousel = products?.carousel?.items;
 
@@ -12,8 +14,15 @@ export const AppWrapper = ({ children }) => {
     return find(propEq("id", placeId))([...featured, ...carousel]);
   };
 
+  const updateCart = (placeId) => {
+    console.log([placeId, ...itemsInCart]);
+    setItemsInCart([placeId, ...itemsInCart]);
+  };
+  console.log({ itemsInCart });
   return (
-    <ProductContext.Provider value={{ featured, carousel, getByPlaceId }}>
+    <ProductContext.Provider
+      value={{ featured, carousel, getByPlaceId, updateCart, itemsInCart }}
+    >
       {children}
     </ProductContext.Provider>
   );

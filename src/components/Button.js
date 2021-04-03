@@ -15,16 +15,19 @@ const ButtonWrap = styled.a`
     light ? "var(--color-white)" : "var(--color-black)"};
   color: ${({ light }) =>
     light ? "var(--color-black)" : "var(--color-white)"};
+  cursor: pointer;
 `;
 
 const Button = ({
   children,
+  onClick = () => {},
+  disabled = false,
   href = "/",
   light = false,
   buttonOnly = false
 }) => {
   return buttonOnly ? (
-    <ButtonWrap as="button" light={light}>
+    <ButtonWrap as="button" light={light} onClick={onClick} disabled={disabled}>
       {children}
     </ButtonWrap>
   ) : (

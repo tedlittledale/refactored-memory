@@ -5,16 +5,20 @@ import styled from "styled-components";
 import Hamburger from "../icons/Hamburger";
 import Close from "../icons/Close";
 import Basket from "../icons/Basket";
+import { useProductContext } from "../context/state";
 
 const NavWrap = styled.nav`
   display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
   height: 100vh;
   width: 100%;
   position: absolute;
+  left: 0;
+  top: 0;
   z-index: ${({ theme }) => theme.zindexes.medium};
   background: var(--color-background);
   padding: ${({ theme }) => theme.spacing.sidePadding};
   align-items: center;
+  justify-self: end;
   ul {
     position: relative;
   }
@@ -91,7 +95,8 @@ const NavData = [
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { itemsInCart } = useProductContext();
+  console.log({ itemsInCart });
   return (
     <div>
       <span hidden id="navigation-label">
@@ -121,7 +126,7 @@ const Nav = () => {
           <BasketItem>
             <Link href="/basket">
               <a>
-                <Basket empty={false} />
+                <Basket empty={!itemsInCart.length} />
               </a>
             </Link>
           </BasketItem>

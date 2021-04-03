@@ -1,12 +1,16 @@
 import React from "react";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
-import Nav from "../src/components/Nav";
 import Hero from "../src/components/Hero";
-import CarouselSection from "../src/components/CarouselSection";
 import Featured from "../src/components/Featured";
+import Nav from "../src/components/Nav";
 import NavBar from "../src/layouts/NavBar";
+
+const CarouselSection = dynamic(() =>
+  import("../src/components/CarouselSection")
+);
 
 const Home = () => {
   return (

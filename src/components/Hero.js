@@ -1,33 +1,34 @@
 import React from "react";
 import styled from "styled-components";
+import Image from "next/image";
 
 import { useProductContext } from "../context/state";
 import currencySymbols from "../utils/currencySymbols";
 import Button from "./Button";
+import BgImage from "./BgImage";
 import { defaultHeading } from "../styles/globals/app";
 
 const HeroWrap = styled.main`
   height: calc(100vh - 80px);
   width: 100%;
-  background-image: url("${({ bg }) => bg}");
-  background-size: cover;
   color: var(--color-content-darkbg);
   padding: ${({ theme }) =>
     `214px  ${theme.spacing.sidePadding} ${theme.spacing.sidePadding} ${theme.spacing.sidePadding}`};
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: ${({ theme }) => `214px  70px ${theme.spacing.sidePadding} 70px`};
   }
-  /* More flexible grid version */
-  /*
-  display: grid;
-  align-content: center;
-  padding: 20px; 
-  */
+  position: relative;
+`;
+
+const Content = styled.div`
+  position: relative;
+  z-index: ${({ theme }) => theme.zindexes.high};
   h2 {
     width: 60%;
     margin-bottom: 11px;
-    ${defaultHeading};
     font-family: var(--font-body-stack);
+    ${defaultHeading};
+
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
       font-weight: normal;
       font-family: var(--font-heading-stack);
@@ -51,7 +52,8 @@ const Hero = ({}) => {
   console.log({ hero, currencySymbols });
   return (
     <HeroWrap bg={large.url}>
-      <div>
+      <BgImage image={large} alt={`Image of ${title}`} fullscreen />
+      <Content>
         <h2>{title}</h2>
         {price && (
           <p>
@@ -62,7 +64,7 @@ const Hero = ({}) => {
         <Button light href={`/book/${id}`}>
           Book Experience
         </Button>
-      </div>
+      </Content>
     </HeroWrap>
   );
 };
