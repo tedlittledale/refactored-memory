@@ -8,6 +8,10 @@ const LayoutWrap = styled.div`
   align-content: start;
   justify-content: center;
   grid: 1fr / 1fr;
+  > div {
+    width: 100vw;
+    overflow: hidden;
+  }
 `;
 
 const Layout = ({ children }) => {
