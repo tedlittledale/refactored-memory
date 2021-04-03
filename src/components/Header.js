@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link";
 import { withProp } from "styled-tools";
-import { defaultBodyText } from "../styles/globals/app";
+import { defaultHeading } from "../styles/globals/app";
 
 const Wrapper = styled("header")`
   justify-self: start;
   h1 {
-    ${defaultBodyText};
+    ${defaultHeading};
     white-space: nowrap;
     padding: 32px 0 32px ${({ theme }) => theme.spacing.sidePadding};
     position: relative;
@@ -15,12 +16,20 @@ const Wrapper = styled("header")`
       padding: 31px 0 31px ${({ theme }) => theme.spacing.default};
     }
   }
+  a {
+    text-decoration: none;
+    font-family: inherit;
+  }
 `;
 
 const Header = ({}) => {
   return (
     <Wrapper>
-      <h1>Scandinavian Adventures</h1>
+      <Link href="/">
+        <a>
+          <h1>Scandinavian Adventures</h1>
+        </a>
+      </Link>
     </Wrapper>
   );
 };

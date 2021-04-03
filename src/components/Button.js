@@ -15,6 +15,9 @@ const ButtonWrap = styled.a`
     light ? "var(--color-white)" : "var(--color-black)"};
   color: ${({ light }) =>
     light ? "var(--color-black)" : "var(--color-white)"};
+  &:disabled {
+    background: rgba(0, 0, 0, 0.5);
+  }
   cursor: pointer;
 `;
 

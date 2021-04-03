@@ -18,10 +18,21 @@ export const AppWrapper = ({ children }) => {
     console.log([placeId, ...itemsInCart]);
     setItemsInCart([placeId, ...itemsInCart]);
   };
+
+  const emptyCart = () => {
+    setItemsInCart([]);
+  };
   console.log({ itemsInCart });
   return (
     <ProductContext.Provider
-      value={{ featured, carousel, getByPlaceId, updateCart, itemsInCart }}
+      value={{
+        featured,
+        carousel,
+        getByPlaceId,
+        updateCart,
+        emptyCart,
+        itemsInCart
+      }}
     >
       {children}
     </ProductContext.Provider>

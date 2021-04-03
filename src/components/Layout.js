@@ -5,15 +5,9 @@ const LayoutWrap = styled.div`
   min-height: 100vh;
   width: 100%;
   display: grid;
-  align-content: center;
+  align-content: start;
   justify-content: center;
-  > div {
-    display: grid;
-    align-content: start;
-    justify-items: start;
-    /* max-width: 1080px;
-    overflow: hidden; */
-  }
+  grid: 1fr / 1fr;
 `;
 
 const Layout = ({ children }) => {

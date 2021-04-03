@@ -124,7 +124,7 @@ const Nav = () => {
             </NavItem>
           ))}
           <BasketItem>
-            <Link href="/basket">
+            <Link href="/cart">
               <a>
                 <Basket empty={!itemsInCart.length} />
               </a>

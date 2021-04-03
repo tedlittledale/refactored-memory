@@ -5,6 +5,7 @@ import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
 import Nav from "../src/components/Nav";
 import NavBar from "../src/layouts/NavBar";
+import Cart from "../src/components/Cart";
 
 const Home = () => {
   return (
@@ -47,6 +48,7 @@ const Home = () => {
           <Header />
           <Nav />
         </NavBar>
+        <Cart />
       </Layout>
     </>
   );
