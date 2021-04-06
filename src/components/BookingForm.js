@@ -19,7 +19,7 @@ const BookingBlock = styled.div`
     display: grid;
     grid: 1fr / 1fr;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
   }
   div {
     border: 1px solid var(--color-black);
