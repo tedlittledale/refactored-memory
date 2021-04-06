@@ -20,6 +20,8 @@ const HeroWrap = styled.main`
     padding: ${({ theme }) => `214px  70px ${theme.spacing.sidePadding} 70px`};
   }
   position: relative;
+  background-image: url("${({ bg }) => bg}");
+  background-size: cover;
 `;
 
 const Content = styled.div`
@@ -48,13 +50,12 @@ const Hero = ({}) => {
   const {
     title,
     id,
-    media: { large, small },
+    media: { large },
     price
   } = hero;
 
   return (
     <HeroWrap bg={large.url} bgHeight={large.height} data-testid="hero">
-      <BgImage image={large} alt={`Image of ${title}`} fullscreen />
       <Content>
         <h2>{title}</h2>
         {price && (
