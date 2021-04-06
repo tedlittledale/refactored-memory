@@ -16,6 +16,10 @@ const BookingBlock = styled.div`
   button {
     background: var(--color-black);
     border: none;
+    display: grid;
+    grid: 1fr / 1fr;
+    align-items: center;
+    justify-items: center;
   }
   div {
     border: 1px solid var(--color-black);

@@ -12,7 +12,11 @@ const CartWrap = styled.div`
 const Buttons = styled.div`
   margin: ${({ theme }) => theme.spacing.default} 0;
   display: grid;
-  grid: 1fr/ 200px 200px;
+  grid: 1fr 1fr / 1fr;
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    grid: 1fr/ 200px 200px;
+  }
+
   grid-gap: ${({ theme }) => theme.spacing.sidePadding};
 `;
 
