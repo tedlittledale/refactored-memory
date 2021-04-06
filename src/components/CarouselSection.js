@@ -68,7 +68,7 @@ const CarouselSection = ({}) => {
 
   return (
     /* use ramdajs take function to safely limit featured to two items */
-    <CarouselSectionWrap>
+    <CarouselSectionWrap data-testid="carousel">
       <h2>Adventure awaits out there</h2>
       <p>Get out and experience Scandinavian way of living</p>
       <Carousel itemSize={275}>

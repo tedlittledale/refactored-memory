@@ -98,7 +98,7 @@ const Nav = () => {
   const { itemsInCart } = useProductContext();
 
   return (
-    <div>
+    <div data-testid="nav">
       <span hidden id="navigation-label">
         Main navigation
       </span>

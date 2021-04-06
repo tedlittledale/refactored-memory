@@ -3,24 +3,40 @@ import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 
-import { theme } from "../styles/theme";
-import { AppWrapper } from "../context/state";
-import products from "../../data/products";
-
-import CarouselSection from "./CarouselSection";
+import { theme } from "../src/styles/theme";
+import { AppWrapper } from "../src/context/state";
+import NavBar from "../src/layouts/NavBar";
+import Header from "../src/components/Header";
+import Layout from "../src/components/Layout";
+import Hero from "../src/components/Hero";
+import Featured from "../src/components/Featured";
+import Nav from "../src/components/Nav";
+import CarouselSection from "../src/components/CarouselSection";
 
 afterEach(cleanup);
 
 test("<BookingForm />", () => {
-  const { debug, getAllByTestId } = render(
+  const { debug, getByTestId } = render(
     <AppWrapper>
       <ThemeProvider theme={theme}>
-        <CarouselSection />
+        <Layout>
+          <NavBar>
+            <Header />
+            <Nav />
+          </NavBar>
+          <Hero />
+          <Featured />
+          <CarouselSection />
+        </Layout>
       </ThemeProvider>
     </AppWrapper>
   );
-  debug();
-  const items = getAllByTestId("carousel-item");
-  const { carousel } = products;
-  expect(items).toHaveLength(carousel.items.length);
+  const nav = getByTestId("nav");
+  const hero = getByTestId("hero");
+  const featured = getByTestId("featured");
+  const carousel = getByTestId("carousel");
+  expect(nav).toBeTruthy();
+  expect(hero).toBeTruthy();
+  expect(featured).toBeTruthy();
+  expect(carousel).toBeTruthy();
 });

@@ -53,7 +53,7 @@ const Hero = ({}) => {
   } = hero;
 
   return (
-    <HeroWrap bg={large.url} bgHeight={large.height}>
+    <HeroWrap bg={large.url} bgHeight={large.height} data-testid="hero">
       <BgImage image={large} alt={`Image of ${title}`} fullscreen />
       <Content>
         <h2>{title}</h2>

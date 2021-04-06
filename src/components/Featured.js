@@ -67,17 +67,22 @@ const Featured = ({}) => {
   const [_, ...remaining] = featured;
   return (
     /* use ramdajs take function to safely limit featured to two items */
-    <FeaturedWrap>
+    <FeaturedWrap data-testid="featured">
       {take(2, remaining).map(
         ({ title, body, id, price, media: { small, large } }) => (
-          <FeaturedItem bglarge={large.url} bgsmall={small.url}>
+          <FeaturedItem bglarge={large.url} bgsmall={small.url} key={id}>
             <div>
               <h2>{title}</h2>
             </div>
             <div>
               {body.split("– ").length > 1 ? (
                 <ul>
-                  {body.split("– ").map((text) => text && <li>- {text}</li>)}
+                  {body
+                    .split("– ")
+                    .map(
+                      (text, idx) =>
+                        text && <li key={`item_${idx}`}>- {text}</li>
+                    )}
                 </ul>
               ) : (
                 <p>{body}</p>
