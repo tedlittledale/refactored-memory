@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import currencySymbols from "../utils/currencySymbols";
 
+import { useProductContext } from "../context/state";
+import Button from "./Button";
 import Minus from "../icons/Minus";
 import Plus from "../icons/Plus";
 
@@ -23,14 +25,24 @@ const BookingBlock = styled.div`
   }
 `;
 
-const BookingForm = ({ price }) => {
+const BookingForm = ({ price, placeId }) => {
   const [total, setTotal] = useState(0);
   const [totalAdults, setTotalAdults] = useState(0);
   const [totalChildren, setTotalChildren] = useState(0);
+  const [booked, setBooked] = useState(false);
+
+  const { updateCart } = useProductContext();
 
   useEffect(() => {
     setTotal(price.value * (totalAdults + totalChildren));
   }, [totalAdults, totalChildren]);
+
+  const bookPlace = () => {
+    if (!booked) {
+      setBooked(true);
+      updateCart(placeId);
+    }
+  };
 
   return (
     <>
@@ -70,6 +82,10 @@ const BookingForm = ({ price }) => {
         Total {currencySymbols[price.currencyCode]}
         {total}
       </p>
+
+      <Button buttonOnly onClick={bookPlace} disabled={!!booked || !total}>
+        {booked ? "Added to cart" : "Book experience"}
+      </Button>
     </>
   );
 };

@@ -6,10 +6,6 @@ import { useProductContext } from "../context/state";
 import currencySymbols from "../utils/currencySymbols";
 import BookingHero from "./BookingHero";
 import BookingForm from "./BookingForm";
-import Button from "./Button";
-
-import Minus from "../icons/Minus";
-import Plus from "../icons/Plus";
 
 const BookingWrap = styled.div`
   display: grid;
@@ -37,18 +33,9 @@ const Booking = () => {
   const router = useRouter();
   const { placeId } = router.query;
 
-  const { getByPlaceId, updateCart } = useProductContext();
+  const { getByPlaceId } = useProductContext();
   const place = getByPlaceId(placeId);
   const { title, price, body } = place;
-
-  const [booked, setBooked] = useState(false);
-
-  const bookPlace = () => {
-    if (!booked) {
-      setBooked(true);
-      updateCart(placeId);
-    }
-  };
 
   return (
     <BookingWrap>
@@ -61,10 +48,7 @@ const Booking = () => {
             {price.value} {price.unit}
           </p>
         )}
-        <BookingForm price={price} />
-        <Button buttonOnly onClick={bookPlace} disabled={!!booked}>
-          {booked ? "Added to cart" : "Book experience"}
-        </Button>
+        <BookingForm price={price} placeId={placeId} />
         {body && (
           <>
             {body.split("– ").length > 1 ? (
