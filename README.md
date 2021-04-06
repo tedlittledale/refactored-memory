@@ -1,7 +1,5 @@
 # AQKQ Test App
 
-This site is built using Next.js and uses static site rendering for super fast load times and excellent SEO performance.
-
 You can visit this build at https://refactored-memory.vercel.app/
 
 1. Install dependencies
@@ -33,14 +31,13 @@ yarn start
 
 Visit on http://localhost:3000
 
-4. Run tests
-   Run once:
+4. Run tests once
 
 ```bash
 yarn test
 ```
 
-Run in watch mode:
+Run tests in watch mode:
 
 ```bash
 yarn watch
