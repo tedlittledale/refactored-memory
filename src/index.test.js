@@ -3,15 +3,15 @@ import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
 
-import { theme } from "../src/styles/theme";
-import { AppWrapper } from "../src/context/state";
-import NavBar from "../src/layouts/NavBar";
-import Header from "../src/components/Header";
-import Layout from "../src/components/Layout";
-import Hero from "../src/components/Hero";
-import Featured from "../src/components/Featured";
-import Nav from "../src/components/Nav";
-import CarouselSection from "../src/components/CarouselSection";
+import { theme } from "./styles/theme";
+import { AppWrapper } from "./context/state";
+import NavBar from "./layouts/NavBar";
+import Header from "./components/Header";
+import Layout from "./components/Layout";
+import Hero from "./components/Hero";
+import Featured from "./components/Featured";
+import Nav from "./components/Nav";
+import CarouselSection from "./components/CarouselSection";
 
 afterEach(cleanup);
 
