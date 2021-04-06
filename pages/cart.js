@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import dynamic from "next/dynamic";
 import Header from "../src/components/Header";
 import Layout from "../src/components/Layout";
 import Nav from "../src/components/Nav";
