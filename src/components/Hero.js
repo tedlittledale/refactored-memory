@@ -9,9 +9,7 @@ import BgImage from "./BgImage";
 import { defaultHeading } from "../styles/globals/app";
 
 const HeroWrap = styled.main`
-  height: calc(100vh - 80px);
-
-  max-height: ${({ bgHeight }) => bgHeight}px;
+  height: calc(100vh - 82px);
   width: 100%;
   color: var(--color-content-darkbg);
   padding: ${({ theme }) =>
