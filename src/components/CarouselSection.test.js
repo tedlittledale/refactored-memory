@@ -11,7 +11,7 @@ import CarouselSection from "./CarouselSection";
 
 afterEach(cleanup);
 
-test("<BookingForm />", () => {
+test("<CarouselSection />", () => {
   const { debug, getAllByTestId } = render(
     <AppWrapper>
       <ThemeProvider theme={theme}>
