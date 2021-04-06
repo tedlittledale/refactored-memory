@@ -10,6 +10,7 @@ import { defaultHeading } from "../styles/globals/app";
 
 const HeroWrap = styled.main`
   height: calc(100vh - 82px);
+  max-height:550px;
   width: 100%;
   color: var(--color-content-darkbg);
   padding: ${({ theme }) =>
