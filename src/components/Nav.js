@@ -14,7 +14,7 @@ const NavWrap = styled.nav`
   position: absolute;
   left: 0;
   top: 0;
-  z-index: ${({ theme }) => theme.zindexes.medium};
+  z-index: ${({ theme }) => theme.zindexes.high};
   background: var(--color-background);
   padding: ${({ theme }) => theme.spacing.sidePadding};
   align-items: center;
@@ -96,7 +96,16 @@ const NavData = [
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { itemsInCart } = useProductContext();
+  const toggleNav = () => {
+    if (!isOpen) {
+      document.body.style.position = "fixed";
+      document.body.style.top = `0px`;
+    } else {
+      document.body.style.position = "relative";
+    }
 
+    setIsOpen(!isOpen);
+  };
   return (
     <div data-testid="nav">
       <span hidden id="navigation-label">
@@ -106,7 +115,7 @@ const Nav = () => {
         id="menu-toggle"
         aria-label="Main menu"
         aria-expanded={isOpen ? "true" : "false"}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleNav}
       >
         {isOpen ? <Close /> : <Hamburger />}
       </MenuToggle>

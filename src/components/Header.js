@@ -16,7 +16,7 @@ const Wrapper = styled("header")`
     white-space: nowrap;
     padding: 32px 0 32px ${({ theme }) => theme.spacing.sidePadding};
     position: relative;
-    z-index: ${({ theme }) => theme.zindexes.high};
+    z-index: ${({ theme }) => theme.zindexes.highest};
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
       ${defaultHeading};
       padding: 31px 0 31px ${({ theme }) => theme.spacing.default};

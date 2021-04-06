@@ -26,7 +26,7 @@ const HeroWrap = styled.main`
 
 const Content = styled.div`
   position: relative;
-  z-index: ${({ theme }) => theme.zindexes.high};
+  z-index: ${({ theme }) => theme.zindexes.medium};
   h2 {
     width: 60%;
     margin-bottom: 11px;
