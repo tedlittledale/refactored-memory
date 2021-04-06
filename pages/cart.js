@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Scandanavian Adventures</title>
+        <title>Scandanavian Adventures - Cart</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@_superted" />
         <meta property="og:url" content="https://countdown.tedspace.me/" />

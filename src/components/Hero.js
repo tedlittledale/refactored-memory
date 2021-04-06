@@ -10,6 +10,8 @@ import { defaultHeading } from "../styles/globals/app";
 
 const HeroWrap = styled.main`
   height: calc(100vh - 80px);
+
+  max-height: ${({ bgHeight }) => bgHeight}px;
   width: 100%;
   color: var(--color-content-darkbg);
   padding: ${({ theme }) =>
@@ -49,9 +51,9 @@ const Hero = ({}) => {
     media: { large, small },
     price
   } = hero;
-  console.log({ hero, currencySymbols });
+
   return (
-    <HeroWrap bg={large.url}>
+    <HeroWrap bg={large.url} bgHeight={large.height}>
       <BgImage image={large} alt={`Image of ${title}`} fullscreen />
       <Content>
         <h2>{title}</h2>

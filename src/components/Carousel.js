@@ -39,16 +39,16 @@ const CarouselStrip = styled.div`
     height: 100%;
     will-change: transform;
     transform: translateX(0);
-    ${withProp(["animate", "speed"], (animate, speed) => {
+    ${withProp(["animate", "speed", "itemSize"], (animate, speed, itemSize) => {
       if (animate === "left") {
         return css`
           transition: transform ${speed}ms ease-in-out;
-          transform: translateX(100%);
+          transform: translateX(${itemSize}px);
         `;
       } else if (animate === "right") {
         return css`
           transition: transform ${speed}ms ease-in-out;
-          transform: translateX(-100%);
+          transform: translateX(-${itemSize}px);
         `;
       }
     })}
@@ -105,7 +105,7 @@ const Carousel = ({ children, bgc, speed = 800, itemSize }) => {
       setTimeout(() => {
         setAnimate(null);
         incrementCarouse(-1);
-      }, 1005);
+      }, speed);
     },
     onSwipedRight: () => {
       setIsAnimating(true);
@@ -113,7 +113,7 @@ const Carousel = ({ children, bgc, speed = 800, itemSize }) => {
       setTimeout(() => {
         setAnimate(null);
         incrementCarouse(1);
-      }, 1005);
+      }, speed);
     },
     ...config
   });

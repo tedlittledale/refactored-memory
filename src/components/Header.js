@@ -2,17 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { withProp } from "styled-tools";
-import { defaultHeading } from "../styles/globals/app";
+import {
+  defaultHeading,
+  defaultHeadingMobile,
+  defaultBodyText
+} from "../styles/globals/app";
 
 const Wrapper = styled("header")`
   justify-self: start;
   h1 {
-    ${defaultHeading};
+    ${defaultHeadingMobile};
+    ${defaultBodyText};
     white-space: nowrap;
     padding: 32px 0 32px ${({ theme }) => theme.spacing.sidePadding};
     position: relative;
     z-index: ${({ theme }) => theme.zindexes.high};
     @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      ${defaultHeading};
       padding: 31px 0 31px ${({ theme }) => theme.spacing.default};
     }
   }

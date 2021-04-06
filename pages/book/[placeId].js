@@ -7,14 +7,18 @@ import Layout from "../../src/components/Layout";
 import Booking from "../../src/components/Booking";
 import Close from "../../src/components/Close";
 import NavBar from "../../src/layouts/NavBar";
+import { useProductContext } from "../../src/context/state";
 
 const Book = () => {
   const router = useRouter();
   const { placeId } = router.query;
+  const { getByPlaceId } = useProductContext();
+  const place = getByPlaceId(placeId);
+  const { title } = place;
   return (
     <>
       <Head>
-        <title>{placeId}</title>
+        <title>{title}</title>
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content="@_superted" />
         <meta property="og:url" content="https://countdown.tedspace.me/" />

@@ -15,14 +15,13 @@ export const AppWrapper = ({ children }) => {
   };
 
   const updateCart = (placeId) => {
-    console.log([placeId, ...itemsInCart]);
     setItemsInCart([placeId, ...itemsInCart]);
   };
 
   const emptyCart = () => {
     setItemsInCart([]);
   };
-  console.log({ itemsInCart });
+
   return (
     <ProductContext.Provider
       value={{

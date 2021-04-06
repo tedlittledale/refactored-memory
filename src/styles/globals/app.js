@@ -4,6 +4,7 @@ import { css } from "styled-components";
 // App.
 // -------------------------------------------------------------
 export const defaultHeading = css`
+  font-family: var(--font-heading-stack);
   font-weight: 600;
   font-size: 18px;
   line-height: 23px;
@@ -24,7 +25,6 @@ export const defaultHeadingMobile = css`
 export const defaultBodyText = css`
   font-size: 14px;
   line-height: 18px;
-
   letter-spacing: 1.27273px;
 `;
 

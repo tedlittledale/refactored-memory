@@ -52,7 +52,6 @@ export function useScroll() {
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
   const updateValues = ({ deltaY, pageY }) => {
-    console.log({ deltaY, pageY });
     setScrollDirection(deltaY > 0 ? 1 : -1);
     setPageY(pageY);
     timeout(() => {});

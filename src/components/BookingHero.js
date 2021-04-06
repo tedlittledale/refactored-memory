@@ -15,7 +15,6 @@ const BookingHeroWrap = styled.div`
 `;
 
 const BookingHero = ({ place }) => {
-  console.log({ place });
   const {
     media: { large, small }
   } = place;

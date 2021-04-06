@@ -36,11 +36,17 @@ const BookingForm = ({ price }) => {
     <>
       <h3>Adults</h3>
       <BookingBlock>
-        <button onClick={() => setTotalAdults(Math.max(0, totalAdults - 1))}>
+        <button
+          onClick={() => setTotalAdults(Math.max(0, totalAdults - 1))}
+          data-testid="removeAdult"
+        >
           <Minus />
         </button>
-        <div>{totalAdults}</div>
-        <button onClick={() => setTotalAdults(totalAdults + 1)}>
+        <div data-testid="totalAdults">{totalAdults}</div>
+        <button
+          onClick={() => setTotalAdults(totalAdults + 1)}
+          data-testid="addAdult"
+        >
           <Plus />
         </button>
       </BookingBlock>
@@ -48,15 +54,19 @@ const BookingForm = ({ price }) => {
       <BookingBlock>
         <button
           onClick={() => setTotalChildren(Math.max(0, totalChildren - 1))}
+          data-testid="removeChild"
         >
           <Minus />
         </button>
-        <div>{totalChildren}</div>
-        <button onClick={() => setTotalChildren(totalChildren + 1)}>
+        <div data-testid="totalChildren">{totalChildren}</div>
+        <button
+          onClick={() => setTotalChildren(totalChildren + 1)}
+          data-testid="addChild"
+        >
           <Plus />
         </button>
       </BookingBlock>
-      <p>
+      <p data-testid="total">
         Total {currencySymbols[price.currencyCode]}
         {total}
       </p>

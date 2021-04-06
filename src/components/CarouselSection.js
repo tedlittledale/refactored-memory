@@ -66,7 +66,6 @@ const Place = styled.div`
 const CarouselSection = ({}) => {
   const { carousel: carouselItems } = useProductContext();
 
-  console.log({ carouselItems });
   return (
     /* use ramdajs take function to safely limit featured to two items */
     <CarouselSectionWrap>
@@ -74,7 +73,7 @@ const CarouselSection = ({}) => {
       <p>Get out and experience Scandinavian way of living</p>
       <Carousel itemSize={275}>
         {carouselItems.map(({ title, price, id, media: { small } }) => (
-          <Place bg={small.url}>
+          <Place bg={small.url} data-testid="carousel-item" key={id}>
             <div></div>
             <div>
               <h3>{title}</h3>

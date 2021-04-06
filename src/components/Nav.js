@@ -96,7 +96,7 @@ const NavData = [
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { itemsInCart } = useProductContext();
-  console.log({ itemsInCart });
+
   return (
     <div>
       <span hidden id="navigation-label">
